@@ -1,16 +1,8 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  @Inject(ConfigService)
-  public config: ConfigService;
-
-  public getHello(): string {
-    const databaseName: string = this.config.get('DATABASE_NAME');
-
-    console.log({ databaseName });
-
+  getHello(): string {
     return 'Hello World!';
   }
 }

@@ -32,3 +32,7 @@ $ npm run test:cov
 
 to export what env you choose for run on this project
 export NODE_ENV=production
+
+
+references:
+https://wanago.io/2022/08/29/api-nestjs-postgresql-raw-sql-queries/
