@@ -35,4 +35,7 @@ export NODE_ENV=production
 
 
 references:
+
 https://wanago.io/2022/08/29/api-nestjs-postgresql-raw-sql-queries/
+
+https://planetscale.com/blog/how-to-seed-a-database-with-prisma-and-next-js

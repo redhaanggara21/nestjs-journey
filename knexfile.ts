@@ -1,6 +1,5 @@
 import type { Knex } from "knex";
 
-// Update with your config settings.
 require('dotenv').config();
 
 const config: { [key: string]: Knex.Config } = {
