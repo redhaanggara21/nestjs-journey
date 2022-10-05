@@ -1,26 +1,26 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Customer } from 'src/typeorm';
+import { Comment } from 'src/typeorm';
 import { Repository } from 'typeorm';
 import { CreateCommentDto } from 'src/comments/dtos/CreateComment.dto';
 
 @Injectable()
 export class CommentsService {
   constructor(
-    @InjectRepository(Customer)
-    private readonly customerRepository: Repository<Customer>,
+    @InjectRepository(Comment)
+    private readonly commentRepository: Repository<Comment>,
   ) {}
 
   createCustomers(createCommentDto: CreateCommentDto) {
-    const newUser = this.customerRepository.create(createCommentDto);
-    return this.customerRepository.save(newUser);
+    const newUser = this.commentRepository.create(createCommentDto);
+    return this.commentRepository.save(newUser);
   }
 
   getCustomers() {
-    return this.customerRepository.find();
+    return this.commentRepository.find();
   }
 
   findCustomersById(id: any) {
-    return this.customerRepository.findOne(id);
+    return this.commentRepository.findOne(id);
   }
 }

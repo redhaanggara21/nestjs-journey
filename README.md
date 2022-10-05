@@ -8,6 +8,9 @@
 $ npm install
 ```
 
+## How to Migrate
+npx knex migrate:latest
+
 ## Running the app
 
 ```bash
