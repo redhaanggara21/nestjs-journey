@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { UsersModule } from './users/users.module';
 import { CustomersModule } from './customers/customers.module';
+import { CommentsModule } from './comments/comments.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import entities from './typeorm';
@@ -24,6 +25,7 @@ import entities from './typeorm';
     }),
     UsersModule,
     CustomersModule,
+    CommentsModule
   ],
   controllers: [],
   providers: [],
