@@ -1,25 +1,43 @@
 import {
-    Contains,
-    Length,
-    IsDate
+    // Contains,
+    // Length,
+    // IsDate,
+    // MinLength,
+    // MaxLength,
+    IsNotEmpty,
+    // Transform,
+    // MinDate,
+    IsOptional,
+    IsDateString
+    // IsEmail
   } from 'class-validator';
 
 // import { PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn } from 'typeorm';
 
 export class CreateCommentDto {
     
-    @Length(3, 20)
-    username: string;
+  @IsNotEmpty()
+  username: string;
 
-    @Length(3, 20)
-    title: string;
+  @IsNotEmpty()
+  title: string;
 
-    @Contains('hello')
-    comment: string;
+  @IsNotEmpty()
+  comment: string;
 
-    @IsDate()
-    createDateTime: Date;
+  // @IsNotEmpty()
+  // @Transform( ({ value }) => new Date(value))
+  // @IsDate()
+  // @MinDate(new Date())
+  // @IsOptional()
+  @IsDateString()
+  created_time: Date;
 
-    @IsDate()
-    lastChangedDateTime: Date;
+  // @IsNotEmpty()
+  // @Transform( ({ value }) => new Date(value))
+  // @IsDate()
+  // @MinDate(new Date())
+  // @IsOptional()
+  @IsDateString()
+  updated_time: Date;
 }

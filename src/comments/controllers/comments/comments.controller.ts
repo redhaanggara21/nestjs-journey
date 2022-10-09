@@ -27,6 +27,7 @@ import {
     @Post('create')
     @UsePipes(ValidationPipe)
     createCustomers(@Body() createCommentDto: CreateCommentDto) {
+      console.log(createCommentDto);
       return this.commentService.createCustomers(createCommentDto);
     }
   }

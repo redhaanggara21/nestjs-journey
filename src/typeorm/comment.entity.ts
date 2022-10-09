@@ -32,19 +32,28 @@ export class Comment {
 
   comment: string;
 
-  @Column({
-    nullable: false,
-    default: '',
-    name: 'createDateTime',
-  })
+  @Column({ default: true })
+  complete: boolean;
 
-  createDateTime: Date;
+  @Column({ type: 'timestamptz', nullable: true }) //  recommended
+  created_time: Date;
 
-  @Column({
-    nullable: false,
-    default: '',
-    name: 'lastChangedDateTime',
-  })
+  @Column({ type: 'timestamptz',  nullable: true }) // Not recommended is used timestamp
+  updated_time: Date;
 
-  lastChangedDateTime: Date;
+  // @Column({
+  //   nullable: false,
+  //   default: '',
+  //   name: 'createDateTime',
+  // })
+
+  // createDateTime: Date;
+
+  // @Column({
+  //   nullable: false,
+  //   default: '',
+  //   name: 'lastChangedDateTime',
+  // })
+
+  // lastChangedDateTime: Date;
 }
