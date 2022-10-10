@@ -1,13 +1,4 @@
 require('dotenv').config();
-
-// console.dir(process.env);
-
-// PORT_APP=3000
-// DB_HOST='localhost'
-// DB_PORT=5432
-// DB_USERNAME='postgres'
-// DB_PASSWORD='123456'
-// DB_NAME='nest_journey'
 interface KnexConfig {
   [key: string]: object;
 }
@@ -25,8 +16,8 @@ const config: KnexConfig =  {
         password: process.env.DB_PASSWORD
     },
     migrations: {
-        tableName: 'migrations',
-        directory: './migrations/users'
+        tableName: 'knex_migrations'
+        // tableName: './migrations',
     },
     seeds: {
         directory: './seeds/'
@@ -37,7 +28,6 @@ const config: KnexConfig =  {
     },
   },
   development: {
-    //   console.log(process.env.DB_NAME),
       client: 'pg',
       connection: {
             host: process.env.DB_HOST,
@@ -47,7 +37,8 @@ const config: KnexConfig =  {
             password: process.env.DB_PASSWORD
         },
         migrations: {
-            tableName: 'migrations',
+            // tableName: './migrations/',
+            tableName: 'knex_migrations'
         },
         seeds: {
             directory: './seeds/'
@@ -68,7 +59,8 @@ const config: KnexConfig =  {
             password: process.env.DB_PASSWORD
         },
         migrations: {
-            tableName: 'migrations',
+            // tableName: './migrations/',
+            tableName: 'knex_migrations'
         },
         seeds: {
             directory: './seeds/'
@@ -89,7 +81,7 @@ const config: KnexConfig =  {
             password: process.env.DB_PASSWORD
         },
         migrations: {
-            tableName: 'migrations',
+            tableName: 'knex_migrations',
         },
         seeds: {
             directory: './seeds/'
