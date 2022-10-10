@@ -11,6 +11,7 @@ import entities from './typeorm';
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
+      inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
         host: configService.get('DB_HOST'),
@@ -18,10 +19,17 @@ import entities from './typeorm';
         username: configService.get('DB_USERNAME'),
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_NAME'),
+        useNullAsDefault: true,
         entities: entities,
         synchronize: true,
-      }),
-      inject: [ConfigService],
+        autoLoadEntities: true,
+        ssl: true,
+        extra: {
+          ssl: {
+            rejectUnauthorized: false,
+          },
+        }
+      })
     }),
     UsersModule,
     CustomersModule,

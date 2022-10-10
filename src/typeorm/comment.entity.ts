@@ -2,11 +2,13 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Comment {
-  @PrimaryGeneratedColumn({
-    type: 'bigint',
-    name: 'comment_id',
+  // @PrimaryGeneratedColumn({
+  //   type: 'bigint',
+  //   // name: 'comment_id', naming column in databases
+  // })
+  @PrimaryGeneratedColumn('identity', {
+    generatedIdentity: 'ALWAYS',
   })
-
   id: number;
 
   @Column({
@@ -40,20 +42,4 @@ export class Comment {
 
   @Column({ type: 'timestamptz',  nullable: true }) // Not recommended is used timestamp
   updated_time: Date;
-
-  // @Column({
-  //   nullable: false,
-  //   default: '',
-  //   name: 'createDateTime',
-  // })
-
-  // createDateTime: Date;
-
-  // @Column({
-  //   nullable: false,
-  //   default: '',
-  //   name: 'lastChangedDateTime',
-  // })
-
-  // lastChangedDateTime: Date;
 }
