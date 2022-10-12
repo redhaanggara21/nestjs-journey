@@ -79,3 +79,6 @@ npm run start
     % // "db:seed": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
     % // "knex": "babel-node -r dotenv/config node_modules/.bin/knex",
     % // "test:knex": "DOTENV_CONFIG_PATH=.env.test npm run knex"
+    // "start:dev": "nest start --watch",
+    // "start:debug": "nest start --debug --watch",
+    // "start:prod": "node dist/main",

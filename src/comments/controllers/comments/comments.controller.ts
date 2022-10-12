@@ -14,6 +14,12 @@ import {
   @Controller('comments')
   export class CommentsController {
     constructor(private readonly commentService: CommentsService) {}
+
+    @Get()
+    getEnv() {
+      return this.commentService.getEnv();
+    }
+
     @Get()
     getCustomers() {
       return this.commentService.getCustomers();
