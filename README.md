@@ -37,7 +37,7 @@ to export what env you choose for run on this project
 export NODE_ENV=production
 
 
-## Running the app
+## Reference the app
 ```bash
 https://wanago.io/2022/08/29/api-nestjs-postgresql-raw-sql-queries/
 
@@ -49,7 +49,7 @@ https://github.com/knex/knex/issues/2624
 
 https://knexjs.org/guide/migrations.html#migration-cli
 
-#Migrate
+Migrate
 https://github.com/Tony133/nestjs-knexjs
 ```
 
