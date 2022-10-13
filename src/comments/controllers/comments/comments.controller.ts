@@ -14,6 +14,12 @@ import {
   @Controller('comments')
   export class CommentsController {
     constructor(private readonly commentService: CommentsService) {}
+
+    // @Get()
+    // getEnv() {
+    //   return this.commentService.getEnv();
+    // }
+
     @Get()
     getCustomers() {
       return this.commentService.getCustomers();
@@ -27,6 +33,7 @@ import {
     @Post('create')
     @UsePipes(ValidationPipe)
     createCustomers(@Body() createCommentDto: CreateCommentDto) {
+      console.log(createCommentDto);
       return this.commentService.createCustomers(createCommentDto);
     }
   }

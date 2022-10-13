@@ -33,3 +33,10 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+// .gitignore
+
+// add at the bottom
+
+**/*.env
+!config/env/development.env

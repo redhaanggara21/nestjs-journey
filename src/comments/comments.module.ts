@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { Customer } from 'src/typeorm';
+import { Comment } from 'src/typeorm';
 import { CommentsController } from './controllers/comments/comments.controller';
 import { CommentsService } from './services/comments/comments.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Customer])],
+  imports: [TypeOrmModule.forFeature([Comment])],
   controllers: [CommentsController],
   providers: [CommentsService]
 })
