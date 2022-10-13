@@ -15,10 +15,10 @@ import {
   export class CommentsController {
     constructor(private readonly commentService: CommentsService) {}
 
-    @Get()
-    getEnv() {
-      return this.commentService.getEnv();
-    }
+    // @Get()
+    // getEnv() {
+    //   return this.commentService.getEnv();
+    // }
 
     @Get()
     getCustomers() {

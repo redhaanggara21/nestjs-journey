@@ -82,3 +82,10 @@ npm run start
     // "start:dev": "nest start --watch",
     // "start:debug": "nest start --debug --watch",
     // "start:prod": "node dist/main",
+
+
+
+    // "migrate": "npm run knex migrate:latest",
+    // "migrate:make": "npm run knex migrate:make -- -x ts",
+    // "seed": "npm run knex seed:run",
+    // "seed:make": "npm run knex seed:make -- -x ts",

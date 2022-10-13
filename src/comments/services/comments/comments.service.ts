@@ -15,11 +15,11 @@ export class CommentsService {
     private readonly commentRepository: Repository<Comment>,
   ) {}
 
-  public getEnv(): string {
-    const databaseName: string = this.config.get('ENV_NAME');
-    console.log({ databaseName });
-    return databaseName;
-  }
+  // public getEnv(): string {
+  //   const databaseName: string = this.config.get('ENV_NAME');
+  //   console.log({ databaseName });
+  //   return databaseName;
+  // }
 
   createCustomers(createCommentDto: CreateCommentDto) {
     const newUser = this.commentRepository.create(createCommentDto);

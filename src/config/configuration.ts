@@ -1,4 +1,3 @@
-// configuration.ts
 require('dotenv').config();
 
 export const configuration = () => ({
