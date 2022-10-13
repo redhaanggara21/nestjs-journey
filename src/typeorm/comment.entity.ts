@@ -2,10 +2,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Comment {
-  // @PrimaryGeneratedColumn({
-  //   type: 'bigint',
-  //   // name: 'comment_id', naming column in databases
-  // })
   @PrimaryGeneratedColumn('identity', {
     generatedIdentity: 'ALWAYS',
   })

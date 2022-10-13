@@ -18,10 +18,10 @@ npx knex migrate:latest
 $ npm run start
 
 # watch mode
-$ npm run start:dev
+$ npm run start:development
 
 # production mode
-$ npm run start:prod
+$ npm run start:production
 ```
 
 # unit tests
@@ -37,8 +37,8 @@ to export what env you choose for run on this project
 export NODE_ENV=production
 
 
-references:
-
+## Reference the app
+```bash
 https://wanago.io/2022/08/29/api-nestjs-postgresql-raw-sql-queries/
 
 https://planetscale.com/blog/how-to-seed-a-database-with-prisma-and-next-js
@@ -49,8 +49,9 @@ https://github.com/knex/knex/issues/2624
 
 https://knexjs.org/guide/migrations.html#migration-cli
 
-##Migrate
+Migrate
 https://github.com/Tony133/nestjs-knexjs
+```
 
 npx knex migrate:latest --env development
 npx knex migrate:latest --env development
@@ -71,7 +72,7 @@ npm i
 npm run run:pg-docker
 npm run migrate && npm run seed
 npm run start
-
+rm -rf dist && npm run build  
 #setup oldest
     % // "migrate:local": "knex migrate:latest --env development",
     % // "migrate:staging": "knex migrate:latest --env staging",
@@ -79,3 +80,14 @@ npm run start
     % // "db:seed": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
     % // "knex": "babel-node -r dotenv/config node_modules/.bin/knex",
     % // "test:knex": "DOTENV_CONFIG_PATH=.env.test npm run knex"
+    // "start:dev": "nest start --watch",
+    // "start:debug": "nest start --debug --watch",
+    // "start:prod": "node dist/main",
+
+
+
+    // "migrate": "npm run knex migrate:latest",
+    // "migrate:make": "npm run knex migrate:make -- -x ts",
+    // "seed": "npm run knex seed:run",
+    // "seed:make": "npm run knex seed:make -- -x ts",
+    // rm -rf node_modules package-lock.json dist && npm install && npm run build && npm run start:production

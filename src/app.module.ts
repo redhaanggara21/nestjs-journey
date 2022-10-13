@@ -5,10 +5,18 @@ import { CommentsModule } from './comments/comments.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import entities from './typeorm';
+import { configuration } from './config/configuration';
+import { validationSchema } from './config/validation';
 
+require('dotenv').config();
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({ 
+      envFilePath: `src/config/env/${process.env.NODE_ENV}.env`,
+      load: [configuration],
+      isGlobal: true,
+      validationSchema
+    }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -23,12 +31,12 @@ import entities from './typeorm';
         entities: entities,
         synchronize: true,
         autoLoadEntities: true,
-        ssl: true,
-        extra: {
-          ssl: {
-            rejectUnauthorized: false,
-          },
-        }
+        // ssl: false,
+        // extra: {
+        //   ssl: {
+        //     rejectUnauthorized: false,
+        //   },
+        // }
       })
     }),
     UsersModule,
@@ -36,6 +44,8 @@ import entities from './typeorm';
     CommentsModule
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    // EasyConfiguration
+  ],
 })
 export class AppModule {}
