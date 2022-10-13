@@ -72,7 +72,7 @@ npm i
 npm run run:pg-docker
 npm run migrate && npm run seed
 npm run start
-
+rm -rf dist && npm run build  
 #setup oldest
     % // "migrate:local": "knex migrate:latest --env development",
     % // "migrate:staging": "knex migrate:latest --env staging",
@@ -90,3 +90,4 @@ npm run start
     // "migrate:make": "npm run knex migrate:make -- -x ts",
     // "seed": "npm run knex seed:run",
     // "seed:make": "npm run knex seed:make -- -x ts",
+    // rm -rf node_modules package-lock.json dist && npm install && npm run build && npm run start:production

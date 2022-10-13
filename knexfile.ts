@@ -1,5 +1,5 @@
 require('dotenv').config({path: `./src/config/env/${process.env.NODE_ENV}.env`});
-
+// require('dotenv').config({ path: require('find-config')('.env') })
 interface KnexConfig {
   [key: string]: object;
 }
