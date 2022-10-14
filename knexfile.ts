@@ -5,6 +5,8 @@ interface KnexConfig {
 }
 
 console.log("enviroment activated: " + process.env.ENV_NAME);
+console.log(__dirname);
+console.log(process.cwd());
 
 const config: KnexConfig =  {
   local: {
