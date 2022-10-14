@@ -1,18 +1,21 @@
-FROM node:14-alpine as build
+FROM node:14-alpine AS development
 
-WORKDIR /src/app
+WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install glob rimraf
 
 COPY . .
 
 RUN npm run build
 
-FROM node:14-alpine as prod
+FROM node:14-alpine as production
 
-WORKDIR /src/app
+ARG NODE_ENV=development
+ENV NODE_ENV=${NODE_ENV}
+
+WORKDIR /usr/src/app
 
 COPY --from=build /src/app/package*.json ./
 
