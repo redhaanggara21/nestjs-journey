@@ -49,6 +49,8 @@ https://github.com/knex/knex/issues/2624
 
 https://knexjs.org/guide/migrations.html#migration-cli
 
+https://progressivecoder.com/how-to-create-a-multi-stage-nestjs-docker-deployment/
+
 Migrate
 https://github.com/Tony133/nestjs-knexjs
 ```
