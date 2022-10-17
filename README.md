@@ -93,3 +93,5 @@ rm -rf dist && npm run build
     // "seed": "npm run knex seed:run",
     // "seed:make": "npm run knex seed:make -- -x ts",
     // rm -rf node_modules package-lock.json dist && npm install && npm run build && npm run start:production
+
+    docker build --no-cache -t featureflag

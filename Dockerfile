@@ -1,27 +1,21 @@
-FROM node:14-alpine AS development
+FROM node:14-alpine
 
-WORKDIR /usr/src/app
+# Create app directory, this is in our container/in our image
+WORKDIR /src/app
 
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
 COPY package*.json ./
 
-RUN npm install glob rimraf
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
 
+# Bundle app source
 COPY . .
 
 RUN npm run build
-
-FROM node:14-alpine as production
-
-ARG NODE_ENV=development
-ENV NODE_ENV=${NODE_ENV}
-
-WORKDIR /usr/src/app
-
-COPY --from=build /src/app/package*.json ./
-
-COPY --from=build /src/app/.env ./
-
-RUN npm install --only=prod
 
 COPY --from=build /src/app/tsconfig*.json ./
 
@@ -35,6 +29,6 @@ COPY --from=build /src/app/knexfile.ts ./
 
 COPY --from=build /src/app/dist dist
 
-EXPOSE 5000
+EXPOSE 8080
 
-CMD [ "node" , "dist/main.js" ]
+CMD [ "npm", "run", "start:production" ]

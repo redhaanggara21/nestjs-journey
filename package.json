@@ -15,6 +15,7 @@
     "start:test": "NODE_ENV=test nest start --watch",
     "start:staging": "NODE_ENV=staging nest start --watch",
     "start:production": "NODE_ENV=production node dist/main",
+    "clean:registry": "rm -rf node_modules package-lock.json dist && npm cache clean --force",
     "prestart:build": "rm -rf node_modules package-lock.json dist && npm cache clean --force && npm install && npm run build",
     "start:debug": "nest start --debug --watch",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
