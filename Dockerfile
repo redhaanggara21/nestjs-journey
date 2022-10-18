@@ -1,5 +1,7 @@
-FROM node:14-alpine
+FROM node:16.14.2-alpine
 
+# Assing variable env-variable to dotenv variable
+ENV NODE_ENV=production
 # Create app directory, this is in our container/in our image
 WORKDIR /src/app
 
