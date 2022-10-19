@@ -1,0 +1,100 @@
+# FROM node:16.14.2-alpine AS base
+
+# Assign variable env-variable to dotenv variable
+# docker build -t nestjs-journey-app-backend --build-arg env=production .
+# docker build -t test-args --build-arg=env=production -f df.nest-backend .
+# docker build -t hello-world:latest --build-arg VERSION=0.2 --build-arg PORT=80 .
+# docker run --env NODE_ENV=development <image-name>
+# docker run --env-file ./.env <IMAGE-NAME>
+
+
+# ARG env
+# ENV NODE_ENV=$env
+
+
+#ARG ARGNAME=default
+# RUN echo "NODE_ENV active from variable = ${NODE_ENV}"
+
+# RUN if [ "$NODE_ENV" = "production" ] ; then echo "production mode "; else echo "development mode" ; fi
+
+# RUN if [ "$NODE_ENV" = "production" ] ; then echo "production mode"; else echo "development mode" ; fi
+
+# Create app directory, this is in our container/in our image
+# WORKDIR /src/app
+
+# Install app dependencies
+#COPY package*.json ./
+# COPY ./package.json .
+
+# install dependencies
+# RUN npm install
+
+# COPY . .
+
+# RUN npm run build
+
+# COPY --from=development /src/tsconfig*.json ./
+
+# COPY --from=development /usr/src/app/dist ./dist
+
+# COPY --from=development /usr/src/app/config/env/ env
+
+# COPY --from=development /usr/src/app/migrations migrations
+
+# COPY --from=development /usr/src/app/seeds seeds
+
+# COPY --from=development /usr/src/app/data data
+
+# COPY --from=development  /usr/src/app/knexfile.ts ./
+
+# COPY --from=budevelopmentild /usr/src/app/dist dist
+
+# EXPOSE 5000
+
+#CMD [ "npm", "run", "start:production" ]
+#CMD [ "node" , "env=production dist/main.js" ]
+
+# ! Important
+# Since we rely in our code to environment variables for e.g. db connection
+# this can only be run successfully with docker-compose file
+
+# Specify node version and choose image
+# also name our image as development (can be anything)
+FROM node:14 As development
+
+# Specify our working directory, this is in our container/in our image
+WORKDIR /src/app
+
+# Copy the package.jsons from host to container
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+COPY package*.json ./
+
+# Here we install all the deps
+#RUN npm install --only=development
+RUN npm install
+
+# Bundle app source / copy all other files
+COPY . .
+
+# Build the app to the /dist folder
+RUN npm run build
+
+################
+## PRODUCTION ##
+################
+# Build another image named production
+FROM node:14 AS production
+
+
+# Set Working Directory
+WORKDIR /src/app
+
+# Copy all from development stage
+COPY --from=development /src/app/ .
+
+EXPOSE 8080
+
+#RUN APP
+CMD ["node", "dist/main"]
+#CMD [ "npm", "run", "start:production" ]
+# docker build -t nestjs_journey --build-arg=env=production .
