@@ -13,12 +13,12 @@ import * as path from 'path';
 require('dotenv').config();
 @Module({
   imports: [
-    // ConfigModule.forRoot({ 
-    //   envFilePath: `src/config/env/${process.env.NODE_ENV}.env`,
-    //   load: [configuration],
-    //   isGlobal: true,
-    //   validationSchema
-    // }),
+    ConfigModule.forRoot({ 
+      envFilePath: `src/config/env/${process.env.NODE_ENV}.env`,
+      load: [configuration],
+      isGlobal: true,
+      validationSchema
+    }),
     // ConfigModule.forRoot({
     //   envFilePath: `.${process.env.NODE_ENV}.env`,
     // }),
