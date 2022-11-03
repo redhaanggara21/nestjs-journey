@@ -7,16 +7,24 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import entities from './typeorm';
 import { configuration } from './config/configuration';
 import { validationSchema } from './config/validation';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import * as path from 'path';
 
 require('dotenv').config();
 @Module({
   imports: [
-    ConfigModule.forRoot({ 
-      envFilePath: `src/config/env/${process.env.NODE_ENV}.env`,
-      load: [configuration],
-      isGlobal: true,
-      validationSchema
-    }),
+    // ConfigModule.forRoot({ 
+    //   envFilePath: `src/config/env/${process.env.NODE_ENV}.env`,
+    //   load: [configuration],
+    //   isGlobal: true,
+    //   validationSchema
+    // }),
+    // ConfigModule.forRoot({
+    //   envFilePath: `.${process.env.NODE_ENV}.env`,
+    // }),
+    // ServeStaticModule.forRoot({
+    //   rootPath: path.resolve(__dirname, 'static'),
+    // }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],

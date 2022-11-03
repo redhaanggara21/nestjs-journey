@@ -107,3 +107,5 @@ rm -rf dist && npm run build
     // rm -rf node_modules package-lock.json dist && npm install && npm run build && npm run start:production
 
     docker build --no-cache -t featureflag
+
+https://www.lukmanlab.com/tutorial-docker-compose-postgresql-dengan-adminer/
