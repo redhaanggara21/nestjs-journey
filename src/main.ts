@@ -5,10 +5,10 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
+    .setTitle('documentation example')
+    .setDescription('The example API description')
     .setVersion('1.0')
-    .addTag('cats')
+    .addTag('documentation example')
     .build();// await app.listen(3000);
   // await app.listen(process.env.PORT ? parseInt(process.env.PORT) : 3000);
 
