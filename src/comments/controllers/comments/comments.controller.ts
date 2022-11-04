@@ -15,25 +15,22 @@ import {
   export class CommentsController {
     constructor(private readonly commentService: CommentsService) {}
 
-    // @Get()
-    // getEnv() {
-    //   return this.commentService.getEnv();
-    // }
 
     @Get()
-    getCustomers() {
-      return this.commentService.getCustomers();
+    getComments() {
+      return this.commentService.getComments();
     }
   
-    @Get('id/:id')
-    findCustomersById(@Param('id', ParseIntPipe) id: number) {
-      return this.commentService.findCustomersById(id);
+    @Get(':id')
+    findCommentsById(@Param('id', ParseIntPipe) id: string) {
+      console.log(id);
+      return this.commentService.findCommentsById(+id);
     }
   
     @Post('create')
     @UsePipes(ValidationPipe)
-    createCustomers(@Body() createCommentDto: CreateCommentDto) {
+    createComments(@Body() createCommentDto: CreateCommentDto) {
       console.log(createCommentDto);
-      return this.commentService.createCustomers(createCommentDto);
+      return this.commentService.createComments(createCommentDto);
     }
   }

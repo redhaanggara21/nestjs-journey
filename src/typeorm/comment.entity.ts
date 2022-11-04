@@ -1,5 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-
+import { 
+  Column, 
+  Entity, 
+  PrimaryGeneratedColumn,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
+import { User } from "./user.entity"
 @Entity()
 export class Comment {
   @PrimaryGeneratedColumn('identity', {
@@ -38,4 +44,11 @@ export class Comment {
 
   @Column({ type: 'timestamptz',  nullable: true }) // Not recommended is used timestamp
   updated_time: Date;
+
+  @OneToOne(() => User, (user) => user.id)
+  @JoinColumn()
+  user: User
+
+  @Column({ nullable: true })
+  userId: bigint;
 }

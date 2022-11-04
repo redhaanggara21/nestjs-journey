@@ -15,22 +15,16 @@ export class CommentsService {
     private readonly commentRepository: Repository<Comment>,
   ) {}
 
-  // public getEnv(): string {
-  //   const databaseName: string = this.config.get('ENV_NAME');
-  //   console.log({ databaseName });
-  //   return databaseName;
-  // }
-
-  createCustomers(createCommentDto: CreateCommentDto) {
+  createComments(createCommentDto: CreateCommentDto) {
     const newUser = this.commentRepository.create(createCommentDto);
     return this.commentRepository.save(newUser);
   }
 
-  getCustomers() {
+  getComments() {
     return this.commentRepository.find();
   }
 
-  findCustomersById(id: any) {
+  findCommentsById(id: any) {
     return this.commentRepository.findOne(id);
   }
 }

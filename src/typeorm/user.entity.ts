@@ -1,9 +1,20 @@
-// import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { BaseEntity, Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, Unique } from "typeorm";
-// import * as bcrypt from "bcrypt"
-
+import { 
+  BaseEntity, 
+  Column, 
+  Entity, 
+  JoinColumn, 
+  OneToMany, 
+  OneToOne,
+  PrimaryGeneratedColumn, 
+  Unique 
+} from "typeorm";
+import { Exclude } from 'class-transformer';
+import { Address } from "./address.entity";
+// import { Comment } from "./comment.entity";
+import { Post } from "./Post.entity";
 @Entity()
 @Unique(['username'])
+@Unique(['email'])
 
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn({
@@ -29,17 +40,13 @@ export class User extends BaseEntity {
     nullable: false,
     default: '',
   })
+  @Exclude()
   password: string;
 
-  // @OneToMany(type => Todo, todo => todo.user, { eager: true })
-  // todo: Todo[]
+  @OneToOne(() => Address)
+  @JoinColumn()
+  public address: Address;
 
-  // @OneToOne(type => UserInfo, { eager: true })
-  // @JoinColumn()
-  // user_info: UserInfo
-
-  // async validatePassword(password: string): Promise<boolean> {
-  //     const hash = await bcrypt.hash(password, this.salt)
-  //     return hash === this.password
-  // }
+  @OneToMany(() => Post, (post: Post) => post.author)
+  public posts: Post[];
 }

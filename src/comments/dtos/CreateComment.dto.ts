@@ -1,15 +1,6 @@
 import {
-    // Contains,
-    // Length,
-    // IsDate,
-    // MinLength,
-    // MaxLength,
     IsNotEmpty,
-    // Transform,
-    // MinDate,
-    IsOptional,
     IsDateString
-    // IsEmail
   } from 'class-validator';
 
 // import { PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn } from 'typeorm';
