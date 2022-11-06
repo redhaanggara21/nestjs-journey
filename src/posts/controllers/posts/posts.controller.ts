@@ -13,6 +13,7 @@ import { CreatePostDto } from 'src/posts/dtos/CreatePosts.dto';
 import { UpdatePostDto } from 'src/posts/dtos/UpdatePosts.dto';
 import { PostsService } from 'src/posts/services/posts/posts.service';
 
+// https://blog.logrocket.com/using-typeorms-querybuilder-nestjs/
 @Controller('posts')
 export class PostsController {
   constructor(

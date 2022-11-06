@@ -8,7 +8,9 @@ import { User } from './user.entity';
 
 @Entity()
 export class Address {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('identity', {
+    generatedIdentity: 'ALWAYS',
+  })
   public id: number;
  
   @Column()
@@ -20,6 +22,6 @@ export class Address {
   @Column()
   public country: string;
 
-  @OneToOne(() => User, (user: User) => user.address)
-  public user: User;
+  // @OneToOne(() => User, (user: User) => user.address)
+  // public user: User;
 }

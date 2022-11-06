@@ -4,7 +4,10 @@ import { Category } from './category.entity';
  
 @Entity()
 export class Post {
-  @PrimaryGeneratedColumn()
+  // @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('identity', {
+    generatedIdentity: 'ALWAYS',
+  })
   public id: number;
  
   @Column()
@@ -16,10 +19,10 @@ export class Post {
   @Column({ nullable: true })
   public category?: string;
  
-  @ManyToOne(() => User, (author: User) => author.posts)
-  public author: User;
+  // @ManyToOne(() => User, (author: User) => author.posts)
+  // public author: User;
  
-  @ManyToMany(() => Category)
-  @JoinTable()
-  public categories: Category[];
+  // @ManyToMany(() => Category)
+  // @JoinTable()
+  // public categories: Category[];
 }

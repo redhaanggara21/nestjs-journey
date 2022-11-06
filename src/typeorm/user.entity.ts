@@ -43,10 +43,10 @@ export class User extends BaseEntity {
   @Exclude()
   password: string;
 
-  @OneToOne(() => Address)
-  @JoinColumn()
-  public address: Address;
+  // @OneToOne(() => Address)
+  // @JoinColumn()
+  // public address: Address;
 
-  @OneToMany(() => Post, (post: Post) => post.author)
-  public posts: Post[];
+  // @OneToMany(() => Post, (post: Post) => post.author)
+  // public posts: Post[];
 }

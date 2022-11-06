@@ -1,14 +1,18 @@
-import {
-    IsNotEmpty,
-    IsDateString
+import { 
+  IsString, 
+  IsNumber, 
+  IsOptional,
+  IsNotEmpty
 } from 'class-validator';
-
 export class CreatePostDto {
     
+  @IsString()
   @IsNotEmpty()
+  @IsOptional()
   content: string;
 
+  @IsString()
   @IsNotEmpty()
-  @IsDateString()
+  @IsOptional()
   title: string;
 }
