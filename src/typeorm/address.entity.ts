@@ -2,7 +2,9 @@ import {
     Column, 
     Entity, 
     PrimaryGeneratedColumn,
-    OneToOne
+    OneToOne,
+    CreateDateColumn,
+    UpdateDateColumn
 } from 'typeorm';
 import { User } from './user.entity';
 
@@ -21,6 +23,12 @@ export class Address {
  
   @Column()
   public country: string;
+
+  @CreateDateColumn()
+  createdAt : String
+
+  @UpdateDateColumn()
+  updtedAt : String
 
   // @OneToOne(() => User, (user: User) => user.address)
   // public user: User;

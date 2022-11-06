@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { 
+  Column, 
+  Entity, 
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn
+} from 'typeorm';
 @Entity()
 export class Category {
   @PrimaryGeneratedColumn('identity', {
@@ -8,4 +14,10 @@ export class Category {
  
   @Column()
   public name: string;
+
+  @CreateDateColumn()
+  createdAt : String
+
+  @UpdateDateColumn()
+  updtedAt : String
 }

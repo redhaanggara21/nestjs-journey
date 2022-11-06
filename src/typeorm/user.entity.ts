@@ -6,7 +6,9 @@ import {
   OneToMany, 
   OneToOne,
   PrimaryGeneratedColumn, 
-  Unique 
+  Unique,
+  CreateDateColumn,
+  UpdateDateColumn
 } from "typeorm";
 import { Exclude } from 'class-transformer';
 import { Address } from "./address.entity";
@@ -42,6 +44,12 @@ export class User extends BaseEntity {
   })
   @Exclude()
   password: string;
+
+  @CreateDateColumn()
+  createdAt : String
+
+  @UpdateDateColumn()
+  updtedAt : String
 
   // @OneToOne(() => Address)
   // @JoinColumn()
