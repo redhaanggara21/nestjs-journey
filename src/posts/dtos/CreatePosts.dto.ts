@@ -6,7 +6,7 @@ import {
 export class CreatePostDto {
     
   @IsNotEmpty()
-  username: string;
+  content: string;
 
   @IsNotEmpty()
   @IsDateString()

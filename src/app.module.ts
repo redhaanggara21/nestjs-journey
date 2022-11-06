@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { UsersModule } from './users/users.module';
 import { CustomersModule } from './customers/customers.module';
 import { CommentsModule } from './comments/comments.module';
+import { PostsModule } from './posts/posts.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import entities from './typeorm';
@@ -49,7 +50,8 @@ require('dotenv').config();
     }),
     UsersModule,
     CustomersModule,
-    CommentsModule
+    CommentsModule,
+    PostsModule
   ],
   controllers: [],
   providers: [
