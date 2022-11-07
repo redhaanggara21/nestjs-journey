@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Address } from 'src/typeorm';
 import { Repository } from 'typeorm';
 import { CreateAddressDto } from '../dtos/CreateAddress.dto';
+import { UpdateAddressDto } from '../dtos/UpdateAddress.dto';
 
 @Injectable()
 export class AddressService {
@@ -27,7 +28,7 @@ export class AddressService {
     return this.addressRepository.delete(id);
   }
 
-  updateAddressById(id: any, data) {
+  updateAddressById(id: any, data: UpdateAddressDto) {
     return this.addressRepository.update(id, data);
   }
   

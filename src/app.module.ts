@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { UsersModule } from './users/users.module';
 import { CustomersModule } from './customers/customers.module';
 import { CommentsModule } from './comments/comments.module';
+import { AddressModule } from './address/address.module';
 import { PostsModule } from './posts/posts.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -9,6 +10,7 @@ import entities from './typeorm';
 import { configuration } from './config/configuration';
 import { validationSchema } from './config/validation';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { TestingResourcesModule } from './testing-resources/testing-resources.module';
 import * as path from 'path';
 
 require('dotenv').config();
@@ -51,7 +53,9 @@ require('dotenv').config();
     UsersModule,
     CustomersModule,
     CommentsModule,
-    PostsModule
+    PostsModule,
+    AddressModule,
+    TestingResourcesModule
   ],
   controllers: [],
   providers: [

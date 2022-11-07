@@ -3,7 +3,7 @@ import {
     IsNotEmpty
 } from "class-validator";
 
-export class CreateAddressDto {
+export class UpdateAddressDto {
 
     @IsNotEmpty()
     street: string;
