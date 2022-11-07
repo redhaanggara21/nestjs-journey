@@ -15,9 +15,9 @@ export class Category {
   @Column()
   public name: string;
 
-  @CreateDateColumn()
-  createdAt : String
+  @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
+  createdAt : Date
 
-  @UpdateDateColumn()
-  updtedAt : String
+  @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
+  updtedAt : Date
 }

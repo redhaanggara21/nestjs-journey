@@ -28,11 +28,11 @@ export class Post {
   @Column({ nullable: true })
   public category?: string;
 
-  @CreateDateColumn()
-  createdAt : String
+  @CreateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)" })
+  createdAt : Date
 
-  @UpdateDateColumn()
-  updtedAt : String
+  @UpdateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
+  updtedAt : Date
  
   // @ManyToOne(() => User, (author: User) => author.posts)
   // public author: User;

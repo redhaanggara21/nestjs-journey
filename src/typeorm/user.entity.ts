@@ -45,11 +45,11 @@ export class User extends BaseEntity {
   @Exclude()
   password: string;
 
-  @CreateDateColumn()
-  createdAt : String
+  @CreateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)" })
+  createdAt : Date
 
-  @UpdateDateColumn()
-  updtedAt : String
+  @UpdateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
+  updtedAt : Date
 
   // @OneToOne(() => Address)
   // @JoinColumn()

@@ -24,11 +24,11 @@ export class Address {
   @Column()
   public country: string;
 
-  @CreateDateColumn()
-  createdAt : String
+  @CreateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)" })
+  createdAt : Date
 
-  @UpdateDateColumn()
-  updtedAt : String
+  @UpdateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
+  updtedAt : Date
 
   // @OneToOne(() => User, (user: User) => user.address)
   // public user: User;
