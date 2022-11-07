@@ -3,7 +3,8 @@ import {
   Entity, 
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn,
+  DeleteDateColumn
 } from 'typeorm';
 @Entity()
 export class Category {
@@ -15,9 +16,12 @@ export class Category {
   @Column()
   public name: string;
 
-  @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
-  createdAt : Date
+  @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
+  created_at: Date;
 
-  @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
-  updtedAt : Date
+  @UpdateDateColumn({ type: 'timestamp', default: () => 'NOW()' })
+  updated_at: Date;
+
+  @DeleteDateColumn({type: 'timestamp', default: () => 'NOW()' })
+  deleted_at: Date;
 }

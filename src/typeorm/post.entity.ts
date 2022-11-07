@@ -6,7 +6,8 @@ import {
   ManyToOne, 
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn,
+  DeleteDateColumn
 } from 'typeorm';
 import { User } from './user.entity';
 import { Category } from './category.entity';
@@ -28,16 +29,13 @@ export class Post {
   @Column({ nullable: true })
   public category?: string;
 
-  @CreateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)" })
-  createdAt : Date
+  @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
+  created_at: Date;
 
-  @UpdateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
-  updtedAt : Date
- 
-  // @ManyToOne(() => User, (author: User) => author.posts)
-  // public author: User;
- 
-  // @ManyToMany(() => Category)
-  // @JoinTable()
-  // public categories: Category[];
+  @UpdateDateColumn({ type: 'timestamp', default: () => 'NOW()' })
+  updated_at: Date;
+
+  @DeleteDateColumn({type: 'timestamp', default: () => 'NOW()' })
+  deleted_at: Date;
+
 }

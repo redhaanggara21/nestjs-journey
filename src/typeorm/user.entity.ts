@@ -8,7 +8,8 @@ import {
   PrimaryGeneratedColumn, 
   Unique,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn,
+  DeleteDateColumn
 } from "typeorm";
 import { Exclude } from 'class-transformer';
 import { Address } from "./address.entity";
@@ -45,16 +46,19 @@ export class User extends BaseEntity {
   @Exclude()
   password: string;
 
-  @CreateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)" })
-  createdAt : Date
-
-  @UpdateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
-  updtedAt : Date
-
   // @OneToOne(() => Address)
   // @JoinColumn()
   // public address: Address;
 
   // @OneToMany(() => Post, (post: Post) => post.author)
   // public posts: Post[];
+
+  @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
+  created_at: Date;
+
+  @UpdateDateColumn({ type: 'timestamp', default: () => 'NOW()' })
+  updated_at: Date;
+
+  @DeleteDateColumn({type: 'timestamp', default: () => 'NOW()' })
+  deleted_at: Date;
 }

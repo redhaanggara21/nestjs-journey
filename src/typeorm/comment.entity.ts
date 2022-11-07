@@ -4,6 +4,9 @@ import {
   PrimaryGeneratedColumn,
   OneToOne,
   JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn
 } from 'typeorm';
 import { User } from "./user.entity"
 @Entity()
@@ -39,16 +42,19 @@ export class Comment {
   @Column({ default: true })
   complete: boolean;
 
-  @Column({ type: 'timestamptz', nullable: true }) //  recommended
-  created_time: Date;
-
-  @Column({ type: 'timestamptz',  nullable: true }) // Not recommended is used timestamp
-  updated_time: Date;
-
   @OneToOne(() => User, (user) => user.id)
   @JoinColumn()
   user: User
 
   @Column({ nullable: true })
   userId: bigint;
+
+  @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
+  created_at: Date;
+
+  @UpdateDateColumn({ type: 'timestamp', default: () => 'NOW()' })
+  updated_at: Date;
+
+  @DeleteDateColumn({type: 'timestamp', default: () => 'NOW()' })
+  deleted_at: Date;
 }

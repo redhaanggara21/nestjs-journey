@@ -3,7 +3,8 @@ import {
   Entity, 
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn,
+  DeleteDateColumn
 } from 'typeorm';
 
 @Entity()
@@ -27,9 +28,15 @@ export class Customer {
   })
   email: string;
 
-  @CreateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)" })
-  createdAt : Date
+  // @OneToOne(() => User, (user: User) => user.address)
+  // public user: User;
+ 
+  @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
+  created_at: Date;
 
-  @UpdateDateColumn({ type: "timestamp", nullable: true ,default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
-  updtedAt : Date
+  @UpdateDateColumn({ type: 'timestamp', default: () => 'NOW()' })
+  updated_at: Date;
+
+  @DeleteDateColumn({type: 'timestamp', default: () => 'NOW()' })
+  deleted_at: Date;
 }
