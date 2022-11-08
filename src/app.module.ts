@@ -12,6 +12,8 @@ import { validationSchema } from './config/validation';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TestingResourcesModule } from './testing-resources/testing-resources.module';
 import * as path from 'path';
+import { AddressController } from './address/controllers/address/address.controller';
+import { AddressService } from './address/services/address.service';
 
 require('dotenv').config();
 @Module({
@@ -42,6 +44,10 @@ require('dotenv').config();
         entities: entities,
         synchronize: true,
         autoLoadEntities: true,
+        //https://github.com/nestjs/nest/issues/6046
+        // cli: {
+        //   migrationsDir: 'src/typeorm/migrations',
+        // },
         // ssl: false,
         // extra: {
         //   ssl: {
@@ -54,12 +60,9 @@ require('dotenv').config();
     CustomersModule,
     CommentsModule,
     PostsModule,
-    AddressModule,
-    TestingResourcesModule
+    AddressModule
   ],
   controllers: [],
-  providers: [
-    // EasyConfiguration
-  ],
+  providers: [],
 })
 export class AppModule {}

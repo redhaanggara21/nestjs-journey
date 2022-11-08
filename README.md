@@ -10,6 +10,7 @@ $ npm install
 
 ## How to Migrate
 npx knex migrate:latest
+npx knex migrate:make npx run knex migrate:latest -- -x ts
 
 ## Running the app
 
@@ -37,15 +38,15 @@ to export what env you choose for run on this project
 export NODE_ENV=production
 
 ## run docker container
-    ```bash
-    $ docker-compose up developent
-    start it in development mode. run on: http://localhost:3000 
+```bash
+$ docker-compose up developent
+start it in development mode. run on: http://localhost:3000 
 
-    $ docker-compose up production
-    start it in production mode. run on: http://localhost:3000 
+$ docker-compose up production
+start it in production mode. run on: http://localhost:3000 
 
-    $ docker-compose up -d production
-    P.S: If you want to ditch the terminal logging, you can run the container in a separate daemon using the -d flag like so
+$ docker-compose up -d production
+P.S: If you want to ditch the terminal logging, you can run the container in a separate daemon using the -d flag like so
 ```
 
 

@@ -11,7 +11,6 @@ import {
 export class Customer {
   @PrimaryGeneratedColumn({
     type: 'bigint',
-    name: 'customer_id',
   })
   id: number;
 
@@ -24,12 +23,12 @@ export class Customer {
   @Column({
     nullable: false,
     default: '',
-    name: 'email_address',
+    name: 'email',
   })
   email: string;
 
   // @OneToOne(() => User, (user: User) => user.address)
-  // public user: User;
+  // user: User;
  
   @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
   created_at: Date;

@@ -18,16 +18,16 @@ export class Post {
   @PrimaryGeneratedColumn('identity', {
     generatedIdentity: 'ALWAYS',
   })
-  public id: number;
+  id: number;
  
   @Column()
-  public title: string;
+  title: string;
  
   @Column()
-  public content: string;
+  content: string;
  
   @Column({ nullable: true })
-  public category?: string;
+  category?: string;
 
   @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
   created_at: Date;

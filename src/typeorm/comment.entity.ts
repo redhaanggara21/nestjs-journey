@@ -42,12 +42,12 @@ export class Comment {
   @Column({ default: true })
   complete: boolean;
 
-  @OneToOne(() => User, (user) => user.id)
-  @JoinColumn()
-  user: User
+  // @OneToOne(() => User, (user) => user.id)
+  // @JoinColumn()
+  // user: User
 
   @Column({ nullable: true })
-  userId: bigint;
+  userId: number;
 
   @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
   created_at: Date;

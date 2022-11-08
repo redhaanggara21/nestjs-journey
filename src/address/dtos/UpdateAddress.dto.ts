@@ -15,6 +15,6 @@ export class UpdateAddressDto {
     country: string;
 
     @IsNotEmpty()
-    @IsDate()
+    // @IsDate()
     updated_at: Date;
 }

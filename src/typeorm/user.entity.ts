@@ -1,64 +1,57 @@
 import { 
-  BaseEntity, 
-  Column, 
-  Entity, 
-  JoinColumn, 
-  OneToMany, 
-  OneToOne,
+  Column,
   PrimaryGeneratedColumn, 
-  Unique,
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn
 } from "typeorm";
-import { Exclude } from 'class-transformer';
+// import { Exclude } from 'class-transformer';
 import { Address } from "./address.entity";
 // import { Comment } from "./comment.entity";
 import { Post } from "./Post.entity";
-@Entity()
-@Unique(['username'])
-@Unique(['email'])
-
-export class User extends BaseEntity {
+export class User{
   @PrimaryGeneratedColumn({
     type: 'bigint',
-    name: 'user_id',
+    name: 'id',
   })
   id: number;
   
   @Column({
+    name: 'username',
     nullable: false,
     default: '',
+    unique: true
   })
-  username: string;
+  public username: string;
 
   @Column({
-    name: 'email_address',
+    name: 'email', // for real name
     nullable: false,
     default: '',
+    unique: true
   })
-  email: string;
+  public email: string;
 
   @Column({
     nullable: false,
     default: '',
   })
-  @Exclude()
-  password: string;
+  // @Exclude()
+  public password: string;
 
   // @OneToOne(() => Address)
   // @JoinColumn()
-  // public address: Address;
+  // address: Address;
 
   // @OneToMany(() => Post, (post: Post) => post.author)
-  // public posts: Post[];
+  // posts: Post[];
 
   @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
-  created_at: Date;
+  public created_at: Date;
 
   @UpdateDateColumn({ type: 'timestamp', default: () => 'NOW()' })
-  updated_at: Date;
+  public updated_at: Date;
 
   @DeleteDateColumn({type: 'timestamp', default: () => 'NOW()' })
-  deleted_at: Date;
+  public deleted_at: Date;
 }

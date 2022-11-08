@@ -8,7 +8,8 @@ import { UpdateAddressDto } from '../dtos/UpdateAddress.dto';
 @Injectable()
 export class AddressService {
   constructor(
-    @InjectRepository(Address) private readonly addressRepository: Repository<Address>,
+    @InjectRepository(Address) 
+    private  addressRepository: Repository<Address>,
   ) {}
 
   createAddress(createAddressDto: CreateAddressDto) {
@@ -16,19 +17,20 @@ export class AddressService {
     return this.addressRepository.save(newAddress);
   }
 
-  getAddress() {
+  getAddress(): Promise<Address[]> {
     return this.addressRepository.find();
   }
 
-  findAddressById(id: any) {
-    return this.addressRepository.findOne(id);
+  findAddressById(id: number): Promise<Address> {
+    console.log(id);
+    return this.addressRepository.findOneBy({ id });
   }
 
-  deleteAddressById(id: any){
+  deleteAddressById(id: number) {
     return this.addressRepository.delete(id);
   }
 
-  updateAddressById(id: any, data: UpdateAddressDto) {
+  updateAddressById(id: number, data: UpdateAddressDto) {
     return this.addressRepository.update(id, data);
   }
   

@@ -11,10 +11,10 @@ export class Category {
   @PrimaryGeneratedColumn('identity', {
     generatedIdentity: 'ALWAYS',
   })
-  public id: number;
+  id: number;
  
   @Column()
-  public name: string;
+  name: string;
 
   @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
   created_at: Date;

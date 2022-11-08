@@ -22,22 +22,16 @@ import {
       private readonly addressService: AddressService
     ) {}
   
-    @Get('all')
-    @ApiOkResponse({ status: 200, type: Address, isArray: true })
-    getAddress(): Promise<Address[]>{
+    @Get()
+    // @ApiOkResponse({ status: 200, type: Address, isArray: true })
+    getAddress(){
       return this.addressService.getAddress();
     }
   
     @Get(':id')
-    findAddressById(@Param('id', ParseIntPipe) id: string) {
+    getAddressbyId(@Param('id') id: string) {
       console.log(id)
-      return this.addressService.findAddressById(id);
-    }
-
-    @Put(':id')
-    @ApiOkResponse({ status: 200, type: Address })
-    updateAddressById(@Param('id', ParseIntPipe) id: number, @Body() updateAddress: UpdateAddressDto) {
-      return this.addressService.updateAddressById(id, updateAddress);
+      return this.addressService.findAddressById(Number(id));
     }
 
     // https://deryfebriantara.github.io/nestjs-easy-crud/
@@ -46,16 +40,22 @@ import {
     //   return this.addressService.updateAddressById(id, updateAddress);
     // }
   
-    @Post('create')
-    @UsePipes(ValidationPipe)
-    @ApiOkResponse({ status: 200, type: Address })
-    createaddress(@Body() createAddressDTO: CreateAddressDto) {
-      return this.addressService.createAddress(createAddressDTO);
+    @Post()
+    // @UsePipes(ValidationPipe)
+    // @ApiOkResponse({ status: 200, type: Address })
+    async createAddress(@Body() address: CreateAddressDto) {
+      return this.addressService.createAddress(address);
+    }
+
+    @Put(':id')
+    // @ApiOkResponse({ status: 200, type: Address })
+    updateAddressById(@Param('id') id: string, @Body() address: UpdateAddressDto) {
+      return this.addressService.updateAddressById(Number(id), address);
     }
 
     @Delete(':id')
-    @ApiOkResponse({ status: 200, type: Address })
-    remove(@Param('id') id: string) {
+    // @ApiOkResponse({ status: 200, type: Address })
+    async deleteAddres(@Param('id') id: string) {
       return this.addressService.deleteAddressById(+id);
     }
   }

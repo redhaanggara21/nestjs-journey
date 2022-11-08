@@ -6,9 +6,6 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
     DeleteDateColumn
-    // BeforeInsert,
-    // BeforeUpdate,
-    // BeforeRemove,
 } from 'typeorm';
 import { User } from './user.entity';
 
@@ -17,23 +14,26 @@ export class Address {
   @PrimaryGeneratedColumn('identity', {
     generatedIdentity: 'ALWAYS',
   })
-  public id: number;
+  id: number;
  
   @Column()
-  public street: string;
+  street: string;
  
   @Column()
-  public city: string;
+  city: string;
  
   @Column()
-  public country: string;
+  country: string;
   
+  @Column()
   @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
   created_at: Date;
 
+  @Column()
   @UpdateDateColumn({ type: 'timestamp', default: () => 'NOW()' })
   updated_at: Date;
 
+  @Column()
   @DeleteDateColumn({type: 'timestamp', default: () => 'NOW()' })
   deleted_at: Date;
 }
