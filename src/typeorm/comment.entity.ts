@@ -20,7 +20,6 @@ export class Comment {
     nullable: false,
     default: 'hai',
   })
-
   username: string;
 
   @Column({
@@ -28,7 +27,6 @@ export class Comment {
     default: '',
     name: 'title',
   })
-
   title: string;
 
   @Column({
@@ -36,7 +34,6 @@ export class Comment {
     default: '',
     name: 'comment',
   })
-
   comment: string;
 
   @Column({ default: true })
