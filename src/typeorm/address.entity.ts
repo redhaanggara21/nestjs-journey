@@ -14,7 +14,7 @@ export class Address {
   @PrimaryGeneratedColumn('identity', {
     generatedIdentity: 'ALWAYS',
   })
-  id: number;
+  id!: number;
  
   @Column()
   street: string;
@@ -24,16 +24,22 @@ export class Address {
  
   @Column()
   country: string;
+
+  // @Column({
+  //   type: 'boolean',
+  //   default: true
+  // })
+  // status: boolean
   
   @Column()
   @CreateDateColumn({type: 'timestamp', default: () => 'NOW()' })
-  created_at: Date;
+  created_at!: Date;
 
   @Column()
   @UpdateDateColumn({ type: 'timestamp', default: () => 'NOW()' })
-  updated_at: Date;
+  updated_at!: Date;
 
   @Column()
   @DeleteDateColumn({type: 'timestamp', default: () => 'NOW()' })
-  deleted_at: Date;
+  deleted_at!: Date;
 }

@@ -12,7 +12,7 @@ import { validationSchema } from './config/validation';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TestingResourcesModule } from './testing-resources/testing-resources.module';
 import * as path from 'path';
-import { AddressController } from './address/controllers/address/address.controller';
+import { AddressController } from './address/controllers/address.controller';
 import { AddressService } from './address/services/address.service';
 
 require('dotenv').config();

@@ -5,3 +5,11 @@ docker run -it image_name sh
 docker image inspect
 
 But production stage better not have COPY . .
+
+\q: Exit psql connection
+\c: Connect to a new database
+\dt: List all tables
+\du: List all roles
+\list: List databases
+
+https://marmelab.com/blog/2022/10/05/postgrest-api.html
